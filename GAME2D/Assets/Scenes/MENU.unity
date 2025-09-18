@@ -293,6 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742092af4bf231e40ba63aa7f85f0de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameScene: ESCENA1NEW
+  nameScene2: ESCENA2
 --- !u!4 &253747867
 Transform:
   m_ObjectHideFlags: 0
@@ -1167,8 +1169,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 253747866}
         m_TargetAssemblyTypeName: LOADERSCENE, Assembly-CSharp
-        m_MethodName: LoaderSceneM
-        m_Mode: 5
+        m_MethodName: PasaEscena
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
