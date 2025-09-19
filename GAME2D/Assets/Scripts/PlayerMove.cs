@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
     public float horizontal;
     public float vertical;
     public float speed = 5f;
+
+    public Animator animator; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +24,7 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        animator.SetFloat("Movement", horizontal);
         _Rigidbody2D.linearVelocity = new Vector2(horizontal * speed, _Rigidbody2D.linearVelocity.y);
     }
 }
