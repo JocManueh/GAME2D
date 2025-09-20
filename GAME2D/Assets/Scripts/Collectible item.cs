@@ -7,6 +7,8 @@ public class Collectibleitem : MonoBehaviour
     public ItemType type=ItemType.Apple;
     public int itemValue=1;
 
+    public AudioClip appleSound;
+    public AudioClip bananaSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,10 +28,12 @@ public class Collectibleitem : MonoBehaviour
             switch (type)
             {
                 case ItemType.Apple:
-                    GameManager.Instance.TotalApple(itemValue); break;
+                    GameManager.Instance.TotalApple(itemValue);
+                    AudioSource.PlayClipAtPoint(appleSound, transform.position); break;
 
                 case ItemType.Banana:
-                    GameManager.Instance.TotalBanana(itemValue); break;
+                    GameManager.Instance.TotalBanana(itemValue);
+                    AudioSource.PlayClipAtPoint(bananaSound, transform.position); break;
 
             }
         Destroy(gameObject);

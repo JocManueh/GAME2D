@@ -9,7 +9,13 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce = 3f;
     private bool isGrounded;
 
-    public Animator animator; 
+    public Animator animator;
+
+    [Header("Ground Check")]
+    public Transform groundCheck;     // Un empty object bajo los pies del personaje
+    public float groundRadius = 0.2f; // Radio de detección
+    public LayerMask groundLayer;     // Capa del suelo
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,10 +28,13 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+   
     }
 
     private void FixedUpdate()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+
         animator.SetFloat("Movement", horizontal*speed);
         _Rigidbody2D.linearVelocity = new Vector2(horizontal * speed, _Rigidbody2D.linearVelocity.y);
 
@@ -42,13 +51,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            animator.SetBool("isJumping", false);
-        }
+   
     }
-}
+
     
