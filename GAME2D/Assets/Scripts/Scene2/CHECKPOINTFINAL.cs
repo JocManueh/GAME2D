@@ -1,16 +1,35 @@
+using System;
 using UnityEngine;
 
-public class CHECKPOINTFINAL : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Configuración")]
+    public string playerTag = "Player";
+    private bool yaActivado = false;
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        // Verificar que sea el jugador y que no se haya activado ya
+        if (other.CompareTag(playerTag) && !yaActivado)
+        {
+            yaActivado = true;
+            Debug.Log("¡Checkpoint alcanzado!");
+
+            // Buscar el GameController2 y terminar la escena
+            GameController2 gameController = UnityEngine.Object.FindFirstObjectByType<GameController2>();
+            if (gameController != null)
+            {
+                gameController.EndScene2();
+            }
+            else
+            {
+                Debug.LogError("No se encontró GameController2 en la escena");
+            }
+        }
     }
 }

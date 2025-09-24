@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 881031809}
   - component: {fileID: 881031808}
   - component: {fileID: 881031807}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -7843,7 +7843,10 @@ PrefabInstance:
       value: TIMERDEF
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6757802766201156918, guid: bec7bead59747cf45ad10feb8abab1ef, type: 3}
+    - {fileID: 5031421602534807229, guid: bec7bead59747cf45ad10feb8abab1ef, type: 3}
+    - {fileID: 2272890321109846017, guid: bec7bead59747cf45ad10feb8abab1ef, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 15414572984154506, guid: bec7bead59747cf45ad10feb8abab1ef, type: 3}
       insertIndex: -1
