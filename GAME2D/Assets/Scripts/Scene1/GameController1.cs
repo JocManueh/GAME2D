@@ -36,3 +36,5 @@ using TMPro;
         Debug.Log("Tiempo Escena 1 " + GameManager.Instance.GlobalTime);
     }
 }
+
+    

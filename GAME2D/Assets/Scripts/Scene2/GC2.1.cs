@@ -102,7 +102,7 @@ public class GameController2 : MonoBehaviour
             puntajeManzanas = GameManager.Instance.ScoreApple,
             puntajeBananas = GameManager.Instance.ScoreBanana,
             puntajeTotal = GameManager.Instance.ScoreApple + GameManager.Instance.ScoreBanana,
-            fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+      
         };
 
         // Convertir a JSON
