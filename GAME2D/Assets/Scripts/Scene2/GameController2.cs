@@ -1,22 +1,34 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController2 : MonoBehaviour
 {
     public Timer tiempoEscena;
-
+    public TextMeshProUGUI TextApple;
+    public TextMeshProUGUI TextBanana;
 
     public GameObject apple;
     public GameObject Banana;
 
     public int maxManzanas = 5;
     public int maxBananas = 7;
+
+    [Header("Puntos de aparición")]
+    public Transform[] spawnPoints;
+
+    [Header("UI Panel Final")]
+    public GameObject endPanel;
+    public TMP_Text tiempoTotalText;
+    public TMP_Text puntosManzanaText;
+    public TMP_Text puntosBananaText;
+    public Button guardarJsonButton;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-
-        public List<GameObject> puntosDisponibles = new List<GameObject>();
+    
+public List<GameObject> puntosDisponibles = new List<GameObject>();
 
     void Start()
     {
@@ -47,14 +59,18 @@ public class GameController2 : MonoBehaviour
 
         puntosDisponibles.RemoveAt(index);
     }
-}
-
-    // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance != null)
+        {
+            int apples = GameManager.Instance.ScoreApple;
+            int bananas = GameManager.Instance.ScoreBanana;
+
+            TextApple.text = apples.ToString();
+            TextBanana.text = bananas.ToString();
+        }
 
     }
-
     public void addTime()
     {
         tiempoEscena.TimerStop();
@@ -62,6 +78,21 @@ public class GameController2 : MonoBehaviour
 
         GameManager.Instance.TotalTime(getTimeScene);
 
-        Debug.Log("Tiempo Escena 1 " + GameManager.Instance.GlobalTime);
+        Debug.Log("Tiempo Escena 2" + GameManager.Instance.GlobalTime);
     }
+    public void EndGame()
+    {
+        float tiempoTotal = Time.time - tiempoInicio;
+
+        endPanel.SetActive(true);
+
+        tiempoTotalText.text = $"Tiempo total: {tiempoTotal:F2} s";
+        puntosManzanaText.text = $"Puntos Manzana: {puntosManzana}";
+        puntosBananaText.text = $"Puntos Banana: {puntosBanana}";
+
+        Time.timeScale = 0f; // pausa el juego
+    }
+
+
+
 }
