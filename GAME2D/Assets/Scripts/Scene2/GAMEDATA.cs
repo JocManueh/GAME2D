@@ -8,7 +8,6 @@ public class GameData : MonoBehaviour
     public int puntajeManzanas;
     public int puntajeBananas;
     public int puntajeTotal;
-    public string fecha;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

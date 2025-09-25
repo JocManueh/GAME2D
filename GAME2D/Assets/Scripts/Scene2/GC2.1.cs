@@ -102,7 +102,7 @@ public class GameController2 : MonoBehaviour
             puntajeManzanas = GameManager.Instance.ScoreApple,
             puntajeBananas = GameManager.Instance.ScoreBanana,
             puntajeTotal = GameManager.Instance.ScoreApple + GameManager.Instance.ScoreBanana,
-      
+
         };
 
         // Convertir a JSON
@@ -125,30 +125,4 @@ public class GameController2 : MonoBehaviour
         }
     }
 
-    // Método opcional para cargar datos (si lo necesitas después)
-    public GameData CargarDatos(string nombreArchivo)
-    {
-        string filePath = Path.Combine(Application.persistentDataPath, nombreArchivo);
-
-        if (File.Exists(filePath))
-        {
-            try
-            {
-                string jsonString = File.ReadAllText(filePath);
-                GameData datosJuego = JsonUtility.FromJson<GameData>(jsonString);
-                Debug.Log("Datos cargados exitosamente desde: " + filePath);
-                return datosJuego;
-            }
-            catch (Exception e)
-            {
-                Debug.LogError("Error al cargar los datos: " + e.Message);
-                return null;
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Archivo no encontrado: " + filePath);
-            return null;
-        }
-    }
 }
